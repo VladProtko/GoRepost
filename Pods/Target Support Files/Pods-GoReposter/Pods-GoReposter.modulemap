@@ -1,0 +1,6 @@
+framework module Pods_GoReposter {
+  umbrella header "Pods-GoReposter-umbrella.h"
+
+  export *
+  module * { export * }
+}

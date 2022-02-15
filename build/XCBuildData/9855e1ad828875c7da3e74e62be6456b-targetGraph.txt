@@ -1,0 +1,7 @@
+Target dependency graph (3 targets)
+Alamofire in Pods, no dependencies
+AlamofireImage in Pods, depends on:
+Alamofire in Pods (explicit)
+Pods-GoReposter in Pods, depends on:
+Alamofire in Pods (explicit)
+AlamofireImage in Pods (explicit)
