@@ -64,7 +64,6 @@ class RepostNowVC: UIViewController {
                     self.tableView.alpha = 1
                     self.indicator.isHidden = true
                     self.indicator.stopAnimating()
-//                    self.hideLoaderContent()
                 }
                 
                 activityVC.completionWithItemsHandler = { (activityType, completed:Bool, returnedItems:[Any]?, error: Error?) in
@@ -113,7 +112,7 @@ extension RepostNowVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 400
     }
     
 }

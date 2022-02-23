@@ -33,7 +33,6 @@ extension RepostNowTableViewCell: UICollectionViewDelegate, UICollectionViewData
         
          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RepostNowCollectionViewCell", for: indexPath) as? RepostNowCollectionViewCell else { return UICollectionViewCell()}
         
-       // cell.imageInstagram.image = UIImage(named: modelImages[indexPath.row])
         cell.setupINST(InstalModel: modelImages[indexPath.row])
         
         self.pageView.numberOfPages = modelImages.count
@@ -41,7 +40,7 @@ extension RepostNowTableViewCell: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width , height: 450)
+        return CGSize(width: UIScreen.main.bounds.width , height: 550)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
