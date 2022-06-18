@@ -35,6 +35,8 @@
 		84A8D3492796BC5300A2A033 /* TutorialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D3482796BC5300A2A033 /* TutorialCollectionViewCell.swift */; };
 		84CB692627A3DD77002F8DD4 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB692527A3DD77002F8DD4 /* DescriptionTableViewCell.swift */; };
 		84CB692827A41B39002F8DD4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84CB692727A41B39002F8DD4 /* Podfile */; };
+		84F9BD5627DF7927002E99CF /* GoReposter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F9BD5427DF7927002E99CF /* GoReposter.xcdatamodeld */; };
+		84F9BD5D27DF80EE002E99CF /* SaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9BD5C27DF80EE002E99CF /* SaveTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		84A8D3482796BC5300A2A033 /* TutorialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionViewCell.swift; sourceTree = "<group>"; };
 		84CB692527A3DD77002F8DD4 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		84CB692727A41B39002F8DD4 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		84F9BD5527DF7927002E99CF /* GoReposter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoReposter.xcdatamodel; sourceTree = "<group>"; };
+		84F9BD5C27DF80EE002E99CF /* SaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewCell.swift; sourceTree = "<group>"; };
 		857937ACB8FFFFB1BF192D96 /* Pods-GoReposter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoReposter.debug.xcconfig"; path = "Target Support Files/Pods-GoReposter/Pods-GoReposter.debug.xcconfig"; sourceTree = "<group>"; };
 		ADBEDD94A384184E373048AE /* Pods-GoReposter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoReposter.release.xcconfig"; path = "Target Support Files/Pods-GoReposter/Pods-GoReposter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +115,7 @@
 				846A8638279AADC700162B60 /* RepostTableViewCell.swift */,
 				840B899E27A15D3A00267D76 /* RepostNowTableViewCell.swift */,
 				84CB692527A3DD77002F8DD4 /* DescriptionTableViewCell.swift */,
+				84F9BD5C27DF80EE002E99CF /* SaveTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 		84A8D326279606EA00A2A033 /* GoReposter */ = {
 			isa = PBXGroup;
 			children = (
+				84F9BD5727DF7A1C002E99CF /* CoreData */,
 				84A8D341279612B400A2A033 /* App */,
 				849F085F27B1AC0400BA26F5 /* Managers */,
 				849F085A27B1A54100BA26F5 /* Models */,
@@ -204,6 +210,7 @@
 				84A8D330279606F100A2A033 /* Assets.xcassets */,
 				84A8D332279606F100A2A033 /* LaunchScreen.storyboard */,
 				84A8D335279606F100A2A033 /* Info.plist */,
+				84F9BD5427DF7927002E99CF /* GoReposter.xcdatamodeld */,
 			);
 			path = GoReposter;
 			sourceTree = "<group>";
@@ -224,6 +231,13 @@
 				840B89A027A2835100267D76 /* RepostNowCollectionViewCell.swift */,
 			);
 			path = "СollectionViewCell";
+			sourceTree = "<group>";
+		};
+		84F9BD5727DF7A1C002E99CF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		8EF8AF8CA75B1D5674A9E796 /* Frameworks */ = {
@@ -350,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F9BD5D27DF80EE002E99CF /* SaveTableViewCell.swift in Sources */,
 				849F086527B1BA2700BA26F5 /* UDManager.swift in Sources */,
 				840B899F27A15D3A00267D76 /* RepostNowTableViewCell.swift in Sources */,
 				840349FB279965A600C5BBFF /* HowToRepostVC.swift in Sources */,
@@ -359,6 +374,7 @@
 				846A8637279A0B2D00162B60 /* SettingsTableViewCell.swift in Sources */,
 				84A8D3492796BC5300A2A033 /* TutorialCollectionViewCell.swift in Sources */,
 				84A8D328279606EA00A2A033 /* AppDelegate.swift in Sources */,
+				84F9BD5627DF7927002E99CF /* GoReposter.xcdatamodeld in Sources */,
 				840B899D27A1551C00267D76 /* RepostNowVC.swift in Sources */,
 				84034A04279967E900C5BBFF /* HastagsTableViewCell.swift in Sources */,
 				8451E56127B5A15D0025B2BD /* LaunchVC.swift in Sources */,
@@ -596,6 +612,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84F9BD5427DF7927002E99CF /* GoReposter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84F9BD5527DF7927002E99CF /* GoReposter.xcdatamodel */,
+			);
+			currentVersion = 84F9BD5527DF7927002E99CF /* GoReposter.xcdatamodel */;
+			path = GoReposter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84A8D31C279606EA00A2A033 /* Project object */;
 }

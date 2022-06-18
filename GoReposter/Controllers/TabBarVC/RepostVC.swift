@@ -29,32 +29,42 @@ class RepostVC: UIViewController {
     }
     
     @IBAction private func didTapSetting() {
+        
         let nextVC = SettingViewController.getVC(storyboard: .main)
         present(nextVC, animated: true, completion: nil)
     }
-    
+    @IBAction private func didTapSave() {
+        
+        
+        
+        
+    }
     
     // MARK: - Properties
     var dataSource = [ContentModel]()  { didSet{ self.tableView.reloadData() }}
+    var dataSourceSave = [Post]()  { didSet{ self.tableView.reloadData() }}
+
     var newLink = ""
+    
     
     // MARK: -
     // MARK: - ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupClearButton()
         setupNotification()
  
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
+        print("ya na ekrane")
             self.indicator.isHidden = true
             if !UserDefaults.standard.bool(forKey: "first") {
             UserDefaults.standard.set(true, forKey: "first")
             mainView.isHidden = true
             let nextVC = FirstTutorialVC.getVC(storyboard: .main)
-            //tabBarController?
             present(nextVC, animated: true, completion: nil)
         }
     }
@@ -82,7 +92,8 @@ class RepostVC: UIViewController {
             if let data = model {
                 self.dataSource.append(data)
             } else {
-                    
+                self.setupAllertEncorectServer()
+                
                 print("ERROR SERVER")
             }
             self.indicator.isHidden = true
@@ -104,16 +115,15 @@ class RepostVC: UIViewController {
             mainView.isHidden = false
             newLink = string.setupLink()
             if !UserDefaults.standard.bool(forKey: newLink) {
-            UserDefaults.standard.set(true, forKey: newLink)
-            print(newLink)
+                UserDefaults.standard.set(true, forKey: newLink)
+                print(newLink)
                 getResponse()
-                
             }
             
         } else {
             setupAllertEncorectLink()
         }
-     
+        
     }
     
     // MARK: - Allert methods
@@ -122,7 +132,6 @@ class RepostVC: UIViewController {
         let alert = UIAlertController(title: "WRONG!", message: "ТЫ ПЫТАЕШЬСЯ ВСТАВИТЬ НЕКОРЕКТНУЮ ССЛЫКУ", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok, hide please", style: .destructive) { action in
             alert.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true)
         }
         alert.addAction(okButton)
         
@@ -145,7 +154,16 @@ class RepostVC: UIViewController {
         present(alert,animated: true,completion: nil)
     }
     
-    
+    func setupAllertEncorectServer() {
+        self.indicator.isHidden = true
+        let alert = UIAlertController(title: "Error!", message: "Возможно у вас проблемы с интернетом", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok, hide please", style: .destructive) { action in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okButton)
+        
+        present(alert,animated: true,completion: nil)
+    }
     // MARK: - Othr methods
     
 
@@ -156,6 +174,11 @@ class RepostVC: UIViewController {
 
 extension RepostVC: UITableViewDelegate, UITableViewDataSource {
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
@@ -167,18 +190,21 @@ extension RepostVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell",for: indexPath) as! RepostTableViewCell
-        cell.set2(instItemModel: dataSource[indexPath.row])
-        return cell
-
-        
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell",for: indexPath) as? RepostTableViewCell else {return UITableViewCell()}
+//        if indexPath.row == 1 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell",for: indexPath) as! RepostTableViewCell
+            cell.set2(instItemModel: dataSource[indexPath.row])
+            return cell
+//        } else {
+////            let cell2 = tableView.dequeueReusableCell(withIdentifier: "SaveTableViewCell",for: indexPath) as! SaveTableViewCell
+////            cell2.set3(instItemModel: dataSource[indexPath.row])
+////            return cell2
 //
-//        cell.set2(instItemModel: dataSource[indexPath.row])
-//        return cell
-
+//        }
+        
     }
-    
+
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -188,4 +214,5 @@ extension RepostVC: UITableViewDelegate, UITableViewDataSource {
 
     }
 }
+
 

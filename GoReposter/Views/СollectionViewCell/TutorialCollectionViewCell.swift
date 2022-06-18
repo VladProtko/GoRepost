@@ -8,6 +8,8 @@ class TutorialCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
 
   
+
+    
     func setup(object: ObjectColectionViewTutorial) {
         
         imageTutorial.image = object.image
@@ -16,4 +18,6 @@ class TutorialCollectionViewCell: UICollectionViewCell {
         label.text = object.label
     }
     
+
 }
+
